@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="591.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bankdatabase.TransactionManagerController">
+    <children>
+        <BorderPane layoutY="1.0" prefHeight="591.0" prefWidth="691.0">
+            <center>
+                <TabPane prefHeight="609.0" prefWidth="661.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab text="Open/Close">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="504.0" prefWidth="691.0">
+                                    <children>
+                                        <GridPane layoutX="104.0" layoutY="33.0" prefHeight="279.0" prefWidth="471.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.4435119628906" minWidth="10.0" prefWidth="258.3999755859375" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.2000244140625" minWidth="10.0" prefWidth="212.2000244140625" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints maxHeight="157.5" minHeight="10.0" prefHeight="109.99999389648437" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="157.5" minHeight="0.0" prefHeight="8.599993896484392" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="155.0" minHeight="10.0" prefHeight="106.20000610351562" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="106.00234985351562" minHeight="4.5" prefHeight="63.60002136230469" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <VBox prefHeight="132.0" prefWidth="281.0" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label text="First Name">
+                                                            <VBox.margin>
+                                                                <Insets />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField id="firstName" fx:id="firstName">
+                                                            <VBox.margin>
+                                                                <Insets bottom="10.0" top="10.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                        <VBox prefHeight="200.0" prefWidth="142.0">
+                                                            <children>
+                                                                <Label text="Last Name">
+                                                                    <VBox.margin>
+                                                                        <Insets />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField id="lastName" fx:id="lastName">
+                                                                    <VBox.margin>
+                                                                        <Insets bottom="10.0" top="10.0" />
+                                                                    </VBox.margin>
+                                                                </TextField>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" prefHeight="20.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <Label text="Date of Birth">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <DatePicker id="dob" fx:id="dob" editable="false" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox fx:id="campusContainer" prefHeight="90.0" prefWidth="137.0" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                                                    <children>
+                                                        <RadioButton id="savings" fx:id="savings" mnemonicParsing="false" onAction="#loyalCampusSwitch" selected="true" text="Savings">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </VBox.margin>
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="accountTypeGroup" />
+                                                            </toggleGroup>
+                                                        </RadioButton>
+                                                        <RadioButton id="moneyMarket" fx:id="moneyMarket" mnemonicParsing="false" onAction="#loyalCampusSwitch" text="Money Market" toggleGroup="$accountTypeGroup">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </VBox.margin>
+                                                        </RadioButton>
+                                                        <RadioButton id="collegeChecking" fx:id="collegeChecking" mnemonicParsing="false" onAction="#loyalCampusSwitch" prefHeight="18.0" prefWidth="149.0" text="College Checking" toggleGroup="$accountTypeGroup">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </VBox.margin>
+                                                        </RadioButton>
+                                                        <RadioButton id="checking" fx:id="checking" mnemonicParsing="false" onAction="#loyalCampusSwitch" text="Checking" toggleGroup="$accountTypeGroup">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </VBox.margin>
+                                                        </RadioButton>
+                                                    </children>
+                                                </VBox>
+                                                <VBox fx:id="campusGroupContainer" disable="true" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                                    <children>
+                                                        <RadioButton id="newBrunswick" fx:id="newBrunswick" mnemonicParsing="false" prefHeight="8.0" prefWidth="110.0" text="New Brunswick">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" top="10.0" />
+                                                            </VBox.margin>
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="campus" />
+                                                            </toggleGroup>
+                                                        </RadioButton>
+                                                        <RadioButton id="newark" fx:id="newark" mnemonicParsing="false" text="Newark" toggleGroup="$campus">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </VBox.margin>
+                                                        </RadioButton>
+                                                        <RadioButton id="camden" fx:id="camden" mnemonicParsing="false" text="Camden" toggleGroup="$campus">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </VBox.margin>
+                                                        </RadioButton>
+                                                    </children>
+                                                </VBox>
+                                                <HBox alignment="CENTER" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Button id="openButton" fx:id="open" mnemonicParsing="false" onAction="#handleOpen" text="Open" />
+                                                        <Button id="closeButton" fx:id="close" mnemonicParsing="false" onAction="#closeHandle" text="Close" />
+                                                        <Button fx:id="clearDatabaseButton" mnemonicParsing="false" onAction="#clearDatabaseHandle" text="Clear" />
+                                                    </children>
+                                                </HBox>
+                                                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <Label text="Initial Deposit" />
+                                                        <TextField id="openDeposit" fx:id="openDeposit" />
+                                                    </children>
+                                                </VBox>
+                                                <VBox fx:id="loyalContainer" disable="true" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <children>
+                                                        <RadioButton fx:id="loyal" mnemonicParsing="false" text="Loyal">
+                                                            <padding>
+                                                                <Insets left="20.0" />
+                                                            </padding>
+                                                        </RadioButton>
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </GridPane>
+                                        <TextArea id="openCloseOutput" fx:id="openCloseOutput" editable="false" layoutX="96.0" layoutY="342.0" prefHeight="200.0" prefWidth="499.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets top="10.0" />
+                                    </padding>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Deposit/Withdraw">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <GridPane layoutX="104.0" layoutY="33.0" prefHeight="279.0" prefWidth="471.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="354.3999755859375" minWidth="10.0" prefWidth="304.00001220703126" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="189.98133850097656" minWidth="10.0" prefWidth="166.59998779296876" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints />
+                                                <RowConstraints maxHeight="123.5" minHeight="10.0" prefHeight="116.5" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="86.77147674560547" minHeight="10.0" prefHeight="68.5" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="106.00234985351562" minHeight="4.5" prefHeight="51.5" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <VBox prefHeight="48.0" prefWidth="223.0" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Label text="First Name">
+                                                            <VBox.margin>
+                                                                <Insets />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <TextField id="firstName" fx:id="firstNameDW">
+                                                            <VBox.margin>
+                                                                <Insets bottom="10.0" top="10.0" />
+                                                            </VBox.margin>
+                                                        </TextField>
+                                                        <VBox prefHeight="200.0" prefWidth="142.0">
+                                                            <children>
+                                                                <Label text="Last Name">
+                                                                    <VBox.margin>
+                                                                        <Insets bottom="5.0" />
+                                                                    </VBox.margin>
+                                                                </Label>
+                                                                <TextField id="lastName" fx:id="lastNameDW">
+                                                                    <padding>
+                                                                        <Insets top="10.0" />
+                                                                    </padding>
+                                                                </TextField>
+                                                            </children>
+                                                        </VBox>
+                                                    </children>
+                                                </VBox>
+                                                <VBox prefHeight="82.0" prefWidth="281.0" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <Label text="Date of Birth">
+                                                            <VBox.margin>
+                                                                <Insets bottom="5.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                        <DatePicker id="dob" fx:id="dobDW" editable="false" />
+                                                    </children>
+                                                </VBox>
+                                                <HBox fx:id="accountTypeContainer" alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="600.0" spacing="10" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                                                    <children>
+                                                        <RadioButton id="savings" fx:id="savingsDW" mnemonicParsing="false" selected="true" text="Savings">
+                                                            <toggleGroup>
+                                                                <ToggleGroup fx:id="accountTypeGroupDW" />
+                                                            </toggleGroup>
+                                                            <HBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </HBox.margin>
+                                                        </RadioButton>
+                                                        <RadioButton id="checking" fx:id="checkingDW" mnemonicParsing="false" text="Checking" toggleGroup="$accountTypeGroupDW">
+                                                            <HBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </HBox.margin>
+                                                        </RadioButton>
+                                                        <RadioButton id="moneyMarket" fx:id="moneyMarketDW" mnemonicParsing="false" text="Money Market" toggleGroup="$accountTypeGroupDW">
+                                                            <HBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </HBox.margin>
+                                                        </RadioButton>
+                                                        <RadioButton id="collegeChecking" fx:id="collegeCheckingDW" mnemonicParsing="false" text="College Checking" toggleGroup="$accountTypeGroupDW">
+                                                            <HBox.margin>
+                                                                <Insets bottom="5.0" left="20.0" />
+                                                            </HBox.margin>
+                                                        </RadioButton>
+                                                    </children>
+                                                </HBox>
+                                                <VBox alignment="TOP_RIGHT" prefHeight="10.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <children>
+                                                        <Button id="withdrawButton" fx:id="withdraw" mnemonicParsing="false" onAction="#withdrawHandle" prefHeight="46.0" prefWidth="142.0" text="Withdraw">
+                                                            <VBox.margin>
+                                                                <Insets top="10.0" />
+                                                            </VBox.margin>
+                                                        </Button>
+                                                        <Button id="depositButton" fx:id="deposit" mnemonicParsing="false" onAction="#handleDep" prefHeight="46.0" prefWidth="141.0" text="Deposit">
+                                                            <VBox.margin>
+                                                                <Insets left="20.0" top="5.0" />
+                                                            </VBox.margin>
+                                                        </Button>
+                                                    </children>
+                                                </VBox>
+                                                <VBox prefHeight="82.0" prefWidth="281.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                    <children>
+                                                        <Label text="Amount to Deposit/Withdraw" />
+                                                        <TextField id="depositOrWithdraw" fx:id="depositOrWithdraw" />
+                                                    </children>
+                                                </VBox>
+                                            </children>
+                                        </GridPane>
+                                        <TextArea id="depositWithdrawOutput" fx:id="depositWithdrawOutput" editable="false" layoutX="96.0" layoutY="329.0" prefHeight="200.0" prefWidth="499.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets top="10.0" />
+                                    </padding>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Account Database">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextArea fx:id="databaseOutput" editable="false" layoutX="96.0" layoutY="249.0" prefHeight="250.0" prefWidth="499.0" />
+                                        <VBox layoutX="195.0" layoutY="53.0" spacing="10">
+                                            <children>
+                                                <HBox spacing="10">
+                                                    <children>
+                                                        <Button fx:id="loadAccounts" mnemonicParsing="false" onAction="#loadAccountsFromFile" prefHeight="73.6" prefWidth="139.0" text="Load Accounts" />
+                                                        <Button mnemonicParsing="false" onAction="#printHandle" prefHeight="73.6" prefWidth="139.0" text="Print Accounts" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox spacing="10">
+                                                    <children>
+                                                        <Button mnemonicParsing="false" onAction="#printWithAdditionalFeesHandle" prefHeight="73.6" prefWidth="139.0" text="Print With Fees" />
+                                                        <Button mnemonicParsing="false" onAction="#updateCurrentBalancesHandle" prefHeight="73.6" prefWidth="139.0" text="Update Balances" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
